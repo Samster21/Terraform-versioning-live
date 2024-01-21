@@ -50,7 +50,7 @@ resource "aws_dynamodb_table" "terraform_DB" {
 terraform {
   backend "s3" {
     bucket = "terraform-state-bucket-akira"
-    key = "global/s3/terraform.tfstate"
+    key = "live/global/s3/terraform.tfstate"
     region = "us-east-1"
     encrypt = true
     dynamodb_table = "terra_db"
