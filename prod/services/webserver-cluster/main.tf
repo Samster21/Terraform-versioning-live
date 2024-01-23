@@ -3,11 +3,16 @@ provider "aws" {
 }
 
 module "webserver-cluster" {
-  source = "git@github.com:Samster21/Terraform-versioning-modules.git//services/webserver-cluster?ref=v0.0.1"
+  source = "git@github.com:Samster21/Terraform-versioning-modules.git//services/webserver-cluster?ref=v0.0.10"
   asg_name = "Prod-ASG"
   asg_db_name = "Prod-ASG-DDB-table"
   bucket_data = ["terraform-state-bucket-akira","live/prod/services/webserver-cluster/terraform.tfstate"]
   rds_db_remote = ["terraform-state-bucket-akira","live/prod/data-stores/mysql/terraform.tfstate"]
+  custom_tags = {
+    "Owner" = "Isaac"
+    "Managed by" = "Terraform"
+  }
+  enable_autoscaling = false
 }
 
 output "DNS_name" {

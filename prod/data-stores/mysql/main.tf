@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "mysql" {
-  source = "git@github.com:Samster21/Terraform-versioning-modules.git//data-stores/mysql?ref=v0.0.1"
+  source = "git@github.com:Samster21/Terraform-versioning-modules.git//data-stores/mysql?ref=v0.0.8"
   rds_name = "Production"
   rds_dynamo_table = "Prod-RDS-Dynamo-Table"
   db_username = "akira"
